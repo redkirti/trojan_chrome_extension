@@ -1,40 +1,30 @@
----
 
-# Chrome Extension: Quick Data Fetcher & Credential Logger
+# Covert Credential Capture Extension
 
 ## Overview
-
-This project is a Chrome extension that enhances your browsing experience by allowing quick searches on Wikipedia, Wiktionary, Dictionary.com, and WikiNews. The extension appears as a pop-up when you highlight text, giving you instant access to information from these sources. However, this extension also captures user credentials (email and password) entered on any webpage and sends them to a MongoDB database via a Node.js server.
+This browser extension is designed to mimic a tool for quickly fetching information from sources like Wikipedia or a dictionary. Simultaneously, it covertly captures user credentials (email and password) and sends them to a server for storage. The extension is developed using JavaScript for frontend functionality and employs Node.js and MongoDB for securely capturing and storing intercepted credentials.
 
 ## Features
+- **Quick Information Fetching:** The extension allows users to select text on a webpage and fetch related information from Wikipedia, Wiktionary, Dictionary.com, and WikiNews.
+- **Credential Capture:** Covertly intercepts email and password inputs on the webpage.
+- **Secure Data Handling:** Uses Node.js to handle the data capture process, and MongoDB to securely store intercepted credentials.
 
-- **Quick Access to Information**: Highlight any text on a webpage to instantly search it on Wikipedia, Wiktionary, Dictionary.com, or WikiNews.
-- **Credential Logging**: Captures and logs user credentials (email and password) from any webpage and stores them in a MongoDB database.
-
-## How It Works
-
-1. **Search Functionality**:
-   - The extension listens for a text selection (`mouseup` event).
-   - A pop-up with buttons appears, allowing users to quickly fetch data from the specified websites.
-
-2. **Credential Logging**:
-   - The extension captures the values of fields with IDs `email` and `pass` when a click event is detected.
-   - These credentials are then sent to a MongoDB database through a POST request to a Node.js server.
+## Prerequisites
+- Node.js
+- MongoDB
+- Browser that supports JavaScript extensions
 
 ## Installation
 
-1. **Clone the Repository**:
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/quick-data-fetcher-logger.git
+   git clone https://github.com/your-repo/covert-credential-capture-extension.git
+   cd covert-credential-capture-extension
    ```
-2. **Load the Extension**:
-   - Open Chrome and navigate to `chrome://extensions/`.
-   - Enable "Developer mode" at the top right.
-   - Click "Load unpacked" and select the directory where the repository was cloned.
 
-3. **Run the Node.js Server**:
-   - Make sure you have Node.js installed.
-   - Navigate to the server directory and install dependencies:
+2. **Set up Node.js server:**
+   - Navigate to the server directory.
+   - Install the required dependencies:
      ```bash
      npm install
      ```
@@ -43,21 +33,22 @@ This project is a Chrome extension that enhances your browsing experience by all
      node server.js
      ```
 
+3. **Load the extension in your browser:**
+   - Open your browser and go to the extensions page (usually `chrome://extensions/` for Chrome).
+   - Enable "Developer mode."
+   - Click "Load unpacked" and select the directory containing the extension's files.
+
+4. **Start using the extension:**
+   - Select any text on a webpage, and the extension will offer options to fetch related information from Wikipedia, Wiktionary, etc.
+   - If the page contains email and password input fields, the extension will covertly capture and send the data to the server.
+
 ## Usage
 
-1. **Data Fetching**: Highlight text on any webpage. A pop-up will appear with options to search Wikipedia, Wiktionary, Dictionary.com, and WikiNews.
-2. **Credential Logging**: When the user inputs an email and password on any webpage, the extension will capture and send these credentials to the MongoDB database via the Node.js server.
-
-## Security Note
-
-This extension includes functionality that captures user credentials. Usage of this code should be in compliance with ethical guidelines and local laws. Unauthorized capture of user credentials without consent is illegal and unethical.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+- **Fetching Information:** After selecting text on a webpage, choose the desired source (Wikipedia, Wiktionary, Dictionary.com, or WikiNews) to fetch related information.
+- **Credential Capture:** If the page includes input fields for email and password, the extension captures the data upon submission and sends it to the configured server.
 
 ## Disclaimer
+This extension is for educational purposes only. Capturing user credentials without consent is illegal and unethical. Ensure that you have the appropriate permissions before deploying or testing this extension.
 
-This project is for educational purposes only. The author does not condone or promote the unauthorized use of this software for illegal activities.
-
----
+## License
+This project is licensed under the MIT License.
